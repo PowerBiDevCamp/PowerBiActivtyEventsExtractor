@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerBiActivtyEventsExtractor", "PowerBiActivtyEventsExtractor.csproj", "{849712B5-F1B6-40E1-BB79-3EE8E3B608FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{849712B5-F1B6-40E1-BB79-3EE8E3B608FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{849712B5-F1B6-40E1-BB79-3EE8E3B608FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{849712B5-F1B6-40E1-BB79-3EE8E3B608FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{849712B5-F1B6-40E1-BB79-3EE8E3B608FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30B4F0ED-B626-443D-BB3A-98ACE5A5889E}
+	EndGlobalSection
+EndGlobal
