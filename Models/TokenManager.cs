@@ -18,6 +18,10 @@ namespace PowerBiActivtyEventsExtractor.Models {
     private static string applicationId = AppSettings.ApplicationId;
     private static string redirectUri = AppSettings.RedirectUri;
 
+    private static string confidentialApplicationId = AppSettings.confidentialApplicationId;
+    private static string confidentialApplicationSecret = AppSettings.confidentialApplicationSecret;
+    private static string tenantSpecificAuthority = AppSettings.tenantSpecificAuthority;
+
     public static string GetAccessTokenInteractive(string[] scopes) {
 
       // create new public client application
@@ -97,6 +101,26 @@ namespace PowerBiActivtyEventsExtractor.Models {
           }
         }
       }
+    }
+
+    static string GetAppOnlyAccessToken()
+    {
+
+      var appConfidential = ConfidentialClientApplicationBuilder.Create(confidentialApplicationId)
+                              .WithClientSecret(confidentialApplicationSecret)
+                              .WithAuthority(tenantSpecificAuthority)
+                              .Build();
+
+      string[] scopesDefault = new string[] { "https://analysis.windows.net/powerbi/api/.default" };
+
+      var authResult = appConfidential.AcquireTokenForClient(scopesDefault).ExecuteAsync().Result;
+      return authResult.AccessToken;
+    }
+
+    public static PowerBIClient GetPowerBiAppOnlyClient()
+    {
+      var tokenCredentials = new TokenCredentials(GetAppOnlyAccessToken(), "Bearer");
+      return new PowerBIClient(new Uri(urlPowerBiServiceApiRoot), tokenCredentials);
     }
 
   }

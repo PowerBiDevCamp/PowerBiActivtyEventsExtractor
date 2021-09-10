@@ -20,7 +20,7 @@ namespace PowerBiActivtyEventsExtractor.Models {
       string startDateTime = "'" + dateString + "T00:00:00'";
       string endDateTime = "'" + dateString + "T23:59:59'";
 
-      PowerBIClient pbiClient = TokenManager.GetPowerBiClient(PowerBiPermissionScopes.TenantReadAll);
+      PowerBIClient pbiClient = TokenManager.GetPowerBiAppOnlyClient();
       ActivityEventResponse response = pbiClient.Admin.GetActivityEvents(startDateTime, endDateTime);
 
       ProcessActivityResponse(response);
